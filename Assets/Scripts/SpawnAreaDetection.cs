@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SpawnAreaDetection : MonoBehaviour
+{
+    [SerializeField] private GameObject[] shrooms;
+    [SerializeField] private Collider2D roomspawnarea;
+
+     // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Spawn();
+        }
+    }
+    private void Spawn()
+    {
+            Debug.Log("Spawn");
+            FindObjectOfType<ShroomSpawner>().SpawnShrooms(roomspawnarea, shrooms);
+    }
+}
