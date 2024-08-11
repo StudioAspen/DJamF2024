@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8580647913397457966
+--- !u!1 &9103483047469396284
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,79 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4706321615554452791}
-  - component: {fileID: 684512049525916248}
-  - component: {fileID: 9199148053508753733}
+  - component: {fileID: 2222568954833349630}
+  - component: {fileID: 3567731594553849858}
   m_Layer: 0
-  m_Name: UpgradesGiver
+  m_Name: MusicManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4706321615554452791
+--- !u!4 &2222568954833349630
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8580647913397457966}
+  m_GameObject: {fileID: 9103483047469396284}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -123.83157, y: 184.76048, z: -1.2896847}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &684512049525916248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8580647913397457966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 958633bae120ae0429b680b74b00afcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <AllUpgrades>k__BackingField:
-  - {fileID: 11400000, guid: a142f94c7e5d10a42830a735f490a0d4, type: 2}
-  - {fileID: 11400000, guid: 7237ace2e3f9912439c5887f6815f424, type: 2}
-  - {fileID: 11400000, guid: 2f3ec72eaae57ed4d87a77146bbd0dfe, type: 2}
-  - {fileID: 11400000, guid: 93ad6dd3d33578a408adf37c82d801af, type: 2}
-  - {fileID: 11400000, guid: 057ce2bad03432247bee83b836fef027, type: 2}
-  - {fileID: 11400000, guid: 9298c1f8408d2a74ba7302c9bf8640e2, type: 2}
-  - {fileID: 11400000, guid: 8b775890e1b62984d9b12e0a748b6f0e, type: 2}
-  - {fileID: 11400000, guid: ad2453be94e8d1e47a6de20c7cdf3c4e, type: 2}
-  - {fileID: 11400000, guid: 509c2672824971349b188773aa78c499, type: 2}
-  maxHealthAddAmount: 100
-  moneyGainMultiplierAddAmount: 0.1
-  fireRateMultiplierAddAmount: 0.1
-  damageAddAmount: 1
-  ammoCostSubtractAmount: 5
-  healCostSubtractAmount: 5
-  healAddAmount: 10
-  ammoReplenishAddAmount: 2
-  OnUpgradeApplied:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!82 &9199148053508753733
+--- !u!82 &3567731594553849858
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8580647913397457966}
+  m_GameObject: {fileID: 9103483047469396284}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bb8bace97e3e8c74f89b7e01bb836eb0, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: d3666b11411d2a742ae0b70ca49b9a55, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

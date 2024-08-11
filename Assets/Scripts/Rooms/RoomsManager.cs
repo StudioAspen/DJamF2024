@@ -10,17 +10,22 @@ public class RoomsManager : MonoBehaviour
     [SerializeField] private Transform healthRoom;
     [SerializeField] private Transform ammoRoom;
     [SerializeField] private Transform upgradeRoom;
+    AudioSource swish;
+
 
     public int CurrentRoom { get; private set; } // 0 - health, 1 - ammo, 2 - upgrade
     [SerializeField] private bool[] roomActive = { true, true, true };
+
+    private void Start() {
+        swish = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
         HandleCameraMovement();
     }
 
-    public void SwitchRooms(int roomNumber)
-    {
+    public void SwitchRooms(int roomNumber) {
         if (!roomActive[roomNumber])
         {
             return;
@@ -29,8 +34,10 @@ public class RoomsManager : MonoBehaviour
         CurrentRoom = roomNumber;
     }
 
-    public void SwitchToNextRoom()
-    {
+    public void SwitchToNextRoom() {
+        swish.Stop();
+        swish.Play();
+
         int futureRoom = (CurrentRoom + 1) % 3;
 
         if (!roomActive[futureRoom])
@@ -42,8 +49,10 @@ public class RoomsManager : MonoBehaviour
         CurrentRoom = futureRoom;
     }
 
-    public void SwitchToPreviousRoom()
-    {
+    public void SwitchToPreviousRoom() {
+        swish.Stop();
+        swish.Play();
+
         int futureRoom = CurrentRoom - 1 < 0 ? 2 : CurrentRoom - 1;
 
         if (!roomActive[futureRoom])

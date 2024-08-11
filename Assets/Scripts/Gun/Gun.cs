@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    [SerializeField] GunAudio gunAudio;
     [SerializeField] float damage;
     [SerializeField] float fireRate;
     float fireTimer;
@@ -20,6 +21,7 @@ public class Gun : MonoBehaviour
 
     private void Start() {
         currentAmmo = magSize;
+        gunAudio = GetComponentInChildren<GunAudio>();
     }
     private void Update() {
         // Inputs
@@ -43,6 +45,7 @@ public class Gun : MonoBehaviour
     private void Shoot() {
 
         if(fireTimer <= 0 && currentAmmo > 0) {
+            gunAudio.PlayShot();
             Vector2 worldPoint = Camera.main.ScreenToWorldPoint(new Vector3(crosshairPos.x, crosshairPos.y, 0));
 
             Collider2D foundCollider = Physics2D.OverlapPoint(worldPoint);
@@ -63,6 +66,7 @@ public class Gun : MonoBehaviour
 
     private void Reload() {
         if(!reloading) {
+            gunAudio.PlayReload();
             reloading = true;
             reloadTimer = reloadDuration;
         }
