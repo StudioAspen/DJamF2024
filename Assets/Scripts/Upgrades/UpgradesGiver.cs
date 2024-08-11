@@ -28,6 +28,8 @@ public class UpgradesGiver : MonoBehaviour
 
     [HideInInspector] public UnityEvent OnUpgradeApplied = new UnityEvent();
 
+    AudioSource clink;
+
     private void Awake()
     {
         player = FindObjectOfType<PlayerManager>();
@@ -36,10 +38,15 @@ public class UpgradesGiver : MonoBehaviour
     private void Start()
     {
         PopulateSessionUpgradesCount();
+        clink = GetComponent<AudioSource>();
     }
 
     public void ApplyUpgrade(UpgradeType upgradeType)
     {
+        // Audio
+        clink.Stop();
+        clink.Play();
+        
         Upgrade upgrade = GetUpgradeByUpgradeType(upgradeType);
         upgradesCounts[upgradeType]--;
 

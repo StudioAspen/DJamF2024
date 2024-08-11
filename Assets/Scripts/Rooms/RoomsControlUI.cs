@@ -10,6 +10,8 @@ public class RoomsControlUI : MonoBehaviour
     private PlayerManager player;
     private UpgradesUI upgradesUI;
     private PlayerUI playerUI;
+    [SerializeField] AudioSource moneyDing;
+    [SerializeField] AudioSource deny;
 
     [Header("Switch Rooms")]
     [SerializeField] private Button rightButton;
@@ -34,8 +36,13 @@ public class RoomsControlUI : MonoBehaviour
         leftButton.onClick.AddListener(PrevRoom);
 
         buyHealthButton.onClick.AddListener(() => {
-            if (player.Money < player.HealCost) return;
-            if (player.CurrentHealth == player.MaxHealth) return;
+            if (player.Money < player.HealCost && player.CurrentHealth == player.MaxHealth) {
+                deny.Stop();
+                deny.Play();
+                return;
+            }
+            moneyDing.Stop();
+            moneyDing.Play();
 
             playerUI.PlayMoneySubtractAnimation(player.HealCost);
             player.Money -= player.HealCost;
@@ -44,7 +51,13 @@ public class RoomsControlUI : MonoBehaviour
         });
 
         buyAmmoButton.onClick.AddListener(() => {
-            if (player.Money < player.AmmoReplenishCost) return;
+            if (player.Money < player.AmmoReplenishCost) {
+                deny.Stop();
+                deny.Play();
+                return;
+            }
+            moneyDing.Stop();
+            moneyDing.Play();
 
             playerUI.PlayMoneySubtractAnimation(player.AmmoReplenishCost);
             player.Money -= player.AmmoReplenishCost;
@@ -53,7 +66,13 @@ public class RoomsControlUI : MonoBehaviour
         });
 
         buyUpgradeButton.onClick.AddListener(() => {
-            if (player.Money < player.UpgradeCost) return;
+            if (player.Money < player.UpgradeCost) {
+                deny.Stop();
+                deny.Play();
+                return;
+            }
+            moneyDing.Stop();
+            moneyDing.Play();
 
             playerUI.PlayMoneySubtractAnimation(player.UpgradeCost);
             player.Money -= player.UpgradeCost;

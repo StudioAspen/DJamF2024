@@ -36,6 +36,9 @@ public class PlayerManager : MonoBehaviour
         volume.profile.TryGet(out filmGrain);
     }
 
+
+    [SerializeField] AudioSource whispering;
+
     void Start()
     {
         CurrentHealth = MaxHealth;
@@ -61,5 +64,12 @@ public class PlayerManager : MonoBehaviour
 
         Vector2 newVignetteCenter = new Vector2(Gun.CrosshairPos.x / Camera.main.pixelRect.width, Gun.CrosshairPos.y / Camera.main.pixelRect.height);
         vignette.center.value = Vector2.Lerp(vignette.center.value, newVignetteCenter, 10f * Time.unscaledDeltaTime);
+        if(CurrentHealth/MaxHealth <= 0.5f) {
+            float percent = CurrentHealth / MaxHealth;
+            whispering.volume = Mathf.Pow(1-percent,3);
+        }
+        else {
+            whispering.volume = 0;
+        }
     }
 }

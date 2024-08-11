@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
 {
     public float Damage;
     public float FireRate;
+    [SerializeField] GunAudio gunAudio;
     float fireTimer;
     public float ReloadDuration;
     [HideInInspector]public float ReloadTimer;
@@ -21,6 +22,7 @@ public class Gun : MonoBehaviour
 
     private void Start() {
         CurrentAmmo = MagSize;
+        gunAudio = GetComponentInChildren<GunAudio>();
     }
     private void Update() {
         // Inputs
@@ -44,8 +46,9 @@ public class Gun : MonoBehaviour
 
     private void Shoot() {
 
-        if(fireTimer <= 0 && CurrentAmmo > 0) {
-            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(new Vector3(CrosshairPos.x, CrosshairPos.y, 0));
+        if(fireTimer <= 0 && currentAmmo > 0) {
+            gunAudio.PlayShot();
+            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(new Vector3(crosshairPos.x, crosshairPos.y, 0));
 
             Collider2D foundCollider = Physics2D.OverlapPoint(worldPoint);
             Debug.DrawLine(worldPoint, worldPoint + Vector2.up, Color.white, 0.5f);
@@ -65,6 +68,7 @@ public class Gun : MonoBehaviour
 
     private void Reload() {
         if(!reloading) {
+            gunAudio.PlayReload();
             reloading = true;
             ReloadTimer = ReloadDuration;
         }
