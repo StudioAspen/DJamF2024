@@ -4,24 +4,73 @@ using UnityEngine;
 
 public class ShroomSpawner : MonoBehaviour
 {
+    [Header("Spawn Area")]
     [SerializeField] private LayerMask layersShroomCannotSpawnOn;
-    public static ShroomSpawner instance;
+    [SerializeField] private Collider2D roomspawnarea;
+
+    [Header("Spawn Behaviour")]
+    [SerializeField] private GameObject[] shrooms;
+    [SerializeField] private Vector2 spawnIntervalRange = new Vector2(3f, 5f);
+    public float SpawnIntervalMultiplier = 1f;
+    private float spawnInterval;
+    private float spawnShroomsTimer;
+    public bool CanSpawn = true;
+
+    [SerializeField] private int maxShrooms = 100;
+    public int ShroomCount;
+    private List<GameObject> shroomObjects = new List<GameObject>();
+
 
     private void Awake()
     {
-        if (instance == null)
+        
+    }
+
+    private void Start()
+    {
+        spawnInterval = Random.Range(spawnIntervalRange.x, spawnIntervalRange.y);
+    }
+
+    private void Update()
+    {
+        PeriodicSpawningUpdate();
+    }
+
+    private void PeriodicSpawningUpdate()
+    {
+        if (!CanSpawn) return;
+        if (ShroomCount >= maxShrooms) return;
+
+        spawnShroomsTimer += Time.deltaTime;
+
+        if(spawnShroomsTimer > spawnInterval)
         {
-            instance = this;
+            spawnInterval = Random.Range(spawnIntervalRange.x, spawnIntervalRange.y);
+            spawnInterval *= SpawnIntervalMultiplier;
+
+            spawnShroomsTimer = 0;
+
+            shroomObjects.Add(SpawnShrooms(roomspawnarea, shrooms));
+            ShroomCount++;
         }
     }
 
-    public void SpawnShrooms(Collider2D spawnableAreaCollider, GameObject[] shrooms)
+    public void KillAllShrooms()
     {
-        foreach (GameObject shroom in shrooms)
+        for(int i = 0; i < shroomObjects.Count; i++)
         {
-            Vector2 spawnPosition = RandomSpawnPosition(spawnableAreaCollider);
-            GameObject spawnedShroom = Instantiate(shroom, spawnPosition, Quaternion.identity);
+            Destroy(shroomObjects[i]);
         }
+
+        shroomObjects = new List<GameObject>();
+    }
+
+    public GameObject SpawnShrooms(Collider2D spawnableAreaCollider, GameObject[] shrooms)
+    {
+        Vector2 spawnPosition = RandomSpawnPosition(spawnableAreaCollider);
+        GameObject spawnedShroom = Instantiate(shrooms[0], spawnPosition, Quaternion.identity);
+
+        return spawnedShroom;
     }
     
     private Vector2 RandomSpawnPosition(Collider2D spawnableAreaCollider)
