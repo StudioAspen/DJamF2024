@@ -23,6 +23,6 @@ public class SpawnAreaDetection : MonoBehaviour
     private void Spawn()
     {
             Debug.Log("Spawn");
-            shroomSpawner.instance.SpawnShrooms(roomspawnarea, shrooms);
+            FindObjectOfType<ShroomSpawner>().SpawnShrooms(roomspawnarea, shrooms);
     }
 }

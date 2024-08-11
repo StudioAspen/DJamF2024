@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class shroomManager : MonoBehaviour
+public class ShroomManager : MonoBehaviour
 {
     public int s_MaxHealth = 300;
     public int s_currentHealth;

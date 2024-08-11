@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class shroomSpawner : MonoBehaviour
+public class ShroomSpawner : MonoBehaviour
 {
     [SerializeField] private LayerMask layersShroomCannotSpawnOn;
-    public static shroomSpawner instance;
+    public static ShroomSpawner instance;
 
     private void Awake()
     {
