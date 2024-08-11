@@ -15,6 +15,9 @@ public class PlayerManager : MonoBehaviour
     public int AmmoReplenishCost = 50;
     public int UpgradeCost = 50;
 
+
+    [SerializeField] AudioSource whispering;
+
     void Start()
     {
         CurrentHealth = MaxHealth;
@@ -28,5 +31,13 @@ public class PlayerManager : MonoBehaviour
     private void HandleHealth()
     {
         CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
+
+        if(CurrentHealth/MaxHealth <= 0.5f) {
+            float percent = CurrentHealth / MaxHealth;
+            whispering.volume = Mathf.Pow(1-percent,3);
+        }
+        else {
+            whispering.volume = 0;
+        }
     }
 }

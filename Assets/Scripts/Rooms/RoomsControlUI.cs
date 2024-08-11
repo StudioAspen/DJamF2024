@@ -9,6 +9,8 @@ public class RoomsControlUI : MonoBehaviour
     private RoomsManager roomsManager;
     private PlayerManager player;
     private UpgradesUI upgradesUI;
+    [SerializeField] AudioSource moneyDing;
+    [SerializeField] AudioSource deny;
 
     [Header("Switch Rooms")]
     [SerializeField] private Button rightButton;
@@ -32,7 +34,13 @@ public class RoomsControlUI : MonoBehaviour
         leftButton.onClick.AddListener(PrevRoom);
 
         buyHealthButton.onClick.AddListener(() => {
-            if (player.Money < player.HealCost) return;
+            if (player.Money < player.HealCost) {
+                deny.Stop();
+                deny.Play();
+                return;
+            }
+            moneyDing.Stop();
+            moneyDing.Play();
 
             player.Money -= player.HealCost;
 
@@ -40,13 +48,25 @@ public class RoomsControlUI : MonoBehaviour
         });
 
         buyAmmoButton.onClick.AddListener(() => {
-            if (player.Money < player.AmmoReplenishCost) return;
+            if (player.Money < player.AmmoReplenishCost) {
+                deny.Stop();
+                deny.Play();
+                return;
+            }
+            moneyDing.Stop();
+            moneyDing.Play();
 
             player.Money -= player.AmmoReplenishCost;
         });
 
         buyUpgradeButton.onClick.AddListener(() => {
-            if (player.Money < player.UpgradeCost) return;
+            if (player.Money < player.UpgradeCost) {
+                deny.Stop();
+                deny.Play();
+                return;
+            }
+            moneyDing.Stop();
+            moneyDing.Play();
 
             player.Money -= player.UpgradeCost;
 
