@@ -7,6 +7,7 @@ public class ShroomManager : MonoBehaviour
     public int s_MaxHealth = 300;
     public int s_currentHealth;
     public int capsOnDeath = 3;
+    [SerializeField] GameObject squishSound;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +29,8 @@ public class ShroomManager : MonoBehaviour
         {
             s_currentHealth -= dmgAmount;
 
-            if(s_currentHealth <= 0)
-            {
+            if(s_currentHealth <= 0) {
+                Instantiate(squishSound);
                 Destroy(gameObject);
                 CapCounter.instance.IncreaseCaps(capsOnDeath);
             }

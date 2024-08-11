@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class PlayerManager : MonoBehaviour
     public int AmmoReplenishCost = 50;
     public int UpgradeCost = 50;
     public float UpgradeCostMultiplier = 1.05f;
+
+    public string endSceneName;
 
     private void Awake()
     {
@@ -70,6 +73,10 @@ public class PlayerManager : MonoBehaviour
         }
         else {
             whispering.volume = 0;
+        }
+
+        if(CurrentHealth <= 0) {
+            SceneManager.LoadScene(endSceneName);
         }
     }
 }

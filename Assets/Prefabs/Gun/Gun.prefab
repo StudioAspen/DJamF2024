@@ -285,13 +285,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be2842600af40b4ebbe58c0faa4786d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 0
+  FireRate: 0
   gunAudio: {fileID: 0}
-  damage: 10
-  fireRate: 0.25
-  reloadDuration: 1
-  reloadTimer: 0
-  currentAmmo: 0
-  magSize: 10
-  totalAmmo: 100
-  isAutomatic: 0
-  crosshairPos: {x: 0, y: 0}
+  ReloadDuration: 0
+  ReloadTimer: 0
+  CurrentAmmo: 0
+  MagSize: 0
+  TotalAmmo: 0
+  IsAutomatic: 0
+  CrosshairPos: {x: 0, y: 0}
+  shroomLayer:
+    serializedVersion: 2
+    m_Bits: 64
