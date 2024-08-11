@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public float roundTimer;
     [SerializeField] string sceneAtEndGame;
 
+    [SerializeField] ShroomSpawner[] shroomSpawners = new ShroomSpawner[3];
+
     bool roundActive;
 
     private void Start() {
@@ -35,6 +37,15 @@ public class GameManager : MonoBehaviour
     }
 
     private void InitalizeNewRound() {
+        foreach (var shroom in shroomSpawners)
+        {
+            shroom.CanSpawn = false;
+            shroom.KillAllShrooms();
+
+            if (currentRound == 0) continue;
+            shroom.SpawnIntervalMultiplier *= 0.75f;
+        }
+
         Debug.Log("Initalize Round");
         currentRound++;
         roundTimer = roundDuration;
@@ -53,6 +64,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Start Game");
         roundActive = true;
         startScreen.SetActive(false);
+
+        foreach (var shroom in shroomSpawners)
+        {
+            shroom.CanSpawn = true;
+        }
     }
 
     public void RoundEnd() {
@@ -60,6 +76,11 @@ public class GameManager : MonoBehaviour
         roundActive = false;
         endScreen.SetActive(true);
         endTitle.text = "End of Day " + currentRound;
+
+        foreach (var shroom in shroomSpawners)
+        {
+            shroom.CanSpawn = false;
+        }
     }
 
     public void EndRoundButton() {

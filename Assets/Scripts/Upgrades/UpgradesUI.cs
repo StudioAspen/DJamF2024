@@ -13,7 +13,6 @@ public class UpgradesUI : MonoBehaviour
     [Header("Upgrade Cards")]
     [SerializeField] private Button[] upgradeButton = new Button[3];
     [SerializeField] private TMP_Text[] upgradeDescriptionText = new TMP_Text[3];
-    [SerializeField] private Image[] upgradeImage = new Image[3];
 
     private void Awake()
     {
@@ -40,11 +39,10 @@ public class UpgradesUI : MonoBehaviour
             Upgrade randomUpgrade = potentialUpgrades[randomIndex];
 
             upgradeButton[i].onClick.RemoveAllListeners();
-            upgradeButton[i].GetComponent<Image>().color = randomUpgrade.IsRare ? Color.yellow : Color.white;
+            upgradeButton[i].GetComponent<Image>().color = randomUpgrade.IsRare ? Color.gray : Color.white;
 
             upgradeButton[i].onClick.AddListener(() => upgradesGiver.ApplyUpgrade(randomUpgrade.UpgradeType));
             upgradeDescriptionText[i].text = randomUpgrade.Description;
-            upgradeImage[i].sprite = randomUpgrade.Sprite;
 
             potentialUpgrades.Remove(randomUpgrade);
         }

@@ -9,7 +9,6 @@ public class Upgrade : ScriptableObject
     [field: SerializeField] public UpgradeType UpgradeType {  get; private set; }
     [field: TextArea(3, 20)]
     [field: SerializeField] public string Description { get; private set; } = string.Empty;
-    [field: SerializeField] public Sprite Sprite { get; private set; }
     [field: SerializeField] public int Count { get; private set; }
     [field: SerializeField] public bool IsRare { get; private set; }
 }

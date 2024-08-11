@@ -12,8 +12,8 @@ public class RoomsManager : MonoBehaviour
     [SerializeField] private Transform upgradeRoom;
     AudioSource swish;
 
-
     public int CurrentRoom { get; private set; } // 0 - health, 1 - ammo, 2 - upgrade
+    [SerializeField] private ShroomSpawner[] shroomSpawners = new ShroomSpawner[3];
     [SerializeField] private bool[] roomActive = { true, true, true };
 
     private void Start() {
@@ -22,6 +22,11 @@ public class RoomsManager : MonoBehaviour
 
     private void Update()
     {
+        for(int i = 0; i < 3; i++)
+        {
+            if (!roomActive[i]) shroomSpawners[i].CanSpawn = false;
+        }
+
         HandleCameraMovement();
     }
 
