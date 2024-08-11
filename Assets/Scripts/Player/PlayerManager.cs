@@ -5,48 +5,28 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [field: SerializeField] public float CurrentHealth { get; private set; }
-    [field: SerializeField] public float MaxHealth { get; private set; } = 100f;
-    [field: SerializeField] public int Money { get; private set; }
-    [field: SerializeField] public float MoneyGainMultiplier { get; private set; } = 1;
+    public float CurrentHealth;
+    public float MaxHealth = 100f;
+    public int Money;
+    public float MoneyGainMultiplier = 1;
+    public float HealAmount = 50f;
+    public int AmmoReplenishAmount = 30;
+    public int HealCost = 50;
+    public int AmmoReplenishCost = 50;
+    public int UpgradeCost = 50;
 
     void Start()
     {
         CurrentHealth = MaxHealth;
     }
 
-    public void SetMaxHealth(float amount)
+    private void Update()
     {
-        MaxHealth = amount;
+        HandleHealth();
     }
 
-    public void AddMaxHealth(float amount)
+    private void HandleHealth()
     {
-        MaxHealth += amount;
-    }
-
-    public void SetCurrentHealth(float amount)
-    {
-        CurrentHealth = amount;
-    }
-
-    public void TakeDamage(float amount)
-    {
-        CurrentHealth -= amount;
-    }
-
-    public void SetMoney(int amount)
-    {
-        Money = amount;
-    }
-
-    public void AddMoney(int amount)
-    {
-        Money += (int)Mathf.Floor(amount * MoneyGainMultiplier);
-    }
-
-    public void SetMoneyGainMultiplier(float multiplier)
-    {
-        MoneyGainMultiplier = multiplier;
+        CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
     }
 }

@@ -44,6 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9230a45cf3a78194ba21ff6b5eb2dd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CurrentHealth>k__BackingField: 0
-  <MaxHealth>k__BackingField: 0
-  <Money>k__BackingField: 0
+  CurrentHealth: 0
+  MaxHealth: 100
+  Money: 0
+  MoneyGainMultiplier: 1
+  HealAmount: 50
+  AmmoReplenishAmount: 30
+  HealCost: 50
+  AmmoReplenishCost: 50
+  UpgradeCost: 50
