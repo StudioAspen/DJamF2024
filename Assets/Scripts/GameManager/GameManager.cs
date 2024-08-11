@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         startTitle.text = "Day " + currentRound;
 
         // Changing round when final rounds
-        if (currentRound >= totalRounds) {
+        if (currentRound > totalRounds) {
             SceneManager.LoadScene(sceneAtEndGame);
         }
     }
