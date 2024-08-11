@@ -58,6 +58,7 @@ public class Gun : MonoBehaviour
                 foundCollider.GetComponent<ShroomManager>().damageShroom(Mathf.FloorToInt(Damage));
             }
 
+            FindObjectOfType<MuzzleFlash>(true).FlashMuzzle();
 
             // Ammo + reloading
             CurrentAmmo--;
