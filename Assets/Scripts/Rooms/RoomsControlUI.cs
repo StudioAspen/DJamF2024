@@ -11,7 +11,6 @@ public class RoomsControlUI : MonoBehaviour
     private UpgradesUI upgradesUI;
     [SerializeField] AudioSource moneyDing;
     [SerializeField] AudioSource deny;
-    [SerializeField] AudioSource openUpgrade;
 
     [Header("Switch Rooms")]
     [SerializeField] private Button rightButton;
