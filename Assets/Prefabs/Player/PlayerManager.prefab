@@ -47,13 +47,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentHealth: 0
   MaxHealth: 100
-  Money: 1839
+  Money: 0
   MoneyGainMultiplier: 1
   HealAmount: 10
   AmmoReplenishAmount: 30
-  HealCost: 100
-  AmmoReplenishCost: 100
-  UpgradeCost: 250
+  HealCost: 5
+  AmmoReplenishCost: 5
+  UpgradeCost: 25
   UpgradeCostMultiplier: 1.05
   endSceneName: EndOfGame
   whispering: {fileID: 2424819775717144132}

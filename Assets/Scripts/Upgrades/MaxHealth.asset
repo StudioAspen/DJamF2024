@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MaxHealth
   m_EditorClassIdentifier: 
   <UpgradeType>k__BackingField: 0
-  <Description>k__BackingField: Increases your max health by 100
-  <Sprite>k__BackingField: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  <Description>k__BackingField: Increases your max health by 10
   <Count>k__BackingField: 999
+  <IsRare>k__BackingField: 0

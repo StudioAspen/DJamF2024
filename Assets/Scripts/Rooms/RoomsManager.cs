@@ -24,7 +24,16 @@ public class RoomsManager : MonoBehaviour
     {
         for(int i = 0; i < 3; i++)
         {
+            if (shroomSpawners[i].IsFull()) { 
+                DisableRoom(i);
+            }
+
             if (!roomActive[i]) shroomSpawners[i].CanSpawn = false;
+        }
+
+        if (!roomActive[CurrentRoom])
+        {
+            SwitchToNextRoom();
         }
 
         HandleCameraMovement();
@@ -72,6 +81,13 @@ public class RoomsManager : MonoBehaviour
     public void DisableRoom(int roomNumber)
     {
         roomActive[roomNumber] = false;
+    }
+
+    public void EnableAllRooms()
+    {
+        roomActive[0] = true;
+        roomActive[1] = true;
+        roomActive[2] = true;
     }
 
     private void HandleCameraMovement()

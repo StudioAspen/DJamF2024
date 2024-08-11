@@ -37,20 +37,14 @@ public class GameManager : MonoBehaviour
     }
 
     private void InitalizeNewRound() {
-        foreach (var shroom in shroomSpawners)
-        {
-            shroom.CanSpawn = false;
-            shroom.KillAllShrooms();
-
-            if (currentRound == 0) continue;
-            shroom.SpawnIntervalMultiplier *= 0.75f;
-        }
 
         Debug.Log("Initalize Round");
         currentRound++;
         roundTimer = roundDuration;
         startScreen.SetActive(true);
         endScreen.SetActive(false);
+
+        FindObjectOfType<RoomsManager>().EnableAllRooms();
 
         startTitle.text = "Day " + currentRound;
 
@@ -80,6 +74,9 @@ public class GameManager : MonoBehaviour
         foreach (var shroom in shroomSpawners)
         {
             shroom.CanSpawn = false;
+            shroom.KillAllShrooms();
+
+            shroom.SpawnIntervalMultiplier *= 0.75f;
         }
     }
 
