@@ -36,7 +36,7 @@ public class RoomsControlUI : MonoBehaviour
         leftButton.onClick.AddListener(PrevRoom);
 
         buyHealthButton.onClick.AddListener(() => {
-            if (player.Money < player.HealCost && player.CurrentHealth == player.MaxHealth) {
+            if (player.Money < player.HealCost || player.CurrentHealth == player.MaxHealth) {
                 deny.Stop();
                 deny.Play();
                 return;
