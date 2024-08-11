@@ -458,6 +458,18 @@ PrefabInstance:
       propertyPath: m_enableWordWrapping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4131275605168757977, guid: eb1b4b63274647f439f8add4733eaefa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131275605168757977, guid: eb1b4b63274647f439f8add4733eaefa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131275605168757977, guid: eb1b4b63274647f439f8add4733eaefa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5223789838942365639, guid: eb1b4b63274647f439f8add4733eaefa, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -15.3

@@ -69,6 +69,8 @@ public class GameManager : MonoBehaviour
         {
             shroom.CanSpawn = true;
         }
+
+        Cursor.visible = false;
     }
 
     public void RoundEnd() {
@@ -81,6 +83,8 @@ public class GameManager : MonoBehaviour
         {
             shroom.CanSpawn = false;
         }
+
+        Cursor.visible = true;
     }
 
     public void EndRoundButton() {
