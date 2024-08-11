@@ -20,6 +20,8 @@ public class Gun : MonoBehaviour
     public bool IsAutomatic;
     public Vector2 CrosshairPos;
 
+    [SerializeField] LayerMask shroomLayer;
+
     private void Start() {
         CurrentAmmo = MagSize;
         gunAudio = GetComponentInChildren<GunAudio>();
@@ -50,16 +52,18 @@ public class Gun : MonoBehaviour
             gunAudio.PlayShot();
             Vector2 worldPoint = Camera.main.ScreenToWorldPoint(new Vector3(CrosshairPos.x, CrosshairPos.y, 0));
 
-            Collider2D foundCollider = Physics2D.OverlapPoint(worldPoint);
-            Debug.DrawLine(worldPoint, worldPoint + Vector2.up, Color.white, 0.5f);
+            Collider2D foundCollider = Physics2D.OverlapPoint(worldPoint, shroomLayer);
+
+            if(foundCollider) {
+                foundCollider.GetComponent<ShroomManager>().damageShroom(Mathf.FloorToInt(Damage));
+            }
+
 
             // Ammo + reloading
             CurrentAmmo--;
             if(CurrentAmmo <= 0) {
                 Reload();
             }
-            
-            Debug.Log("shot");
 
             // Resetting timer
             fireTimer = FireRate;
