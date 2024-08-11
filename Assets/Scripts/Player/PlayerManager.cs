@@ -76,7 +76,11 @@ public class PlayerManager : MonoBehaviour
         }
 
         if(CurrentHealth <= 0) {
-            SceneManager.LoadScene(endSceneName);
+            FindObjectOfType<BlackScreenFade>(true).FadeInOut(LoadEndScene);
         }
+    }
+
+    public void LoadEndScene() {
+        SceneManager.LoadScene(endSceneName);
     }
 }

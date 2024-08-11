@@ -366,6 +366,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1553171436117790859, guid: eb1b4b63274647f439f8add4733eaefa, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553171436117790859, guid: eb1b4b63274647f439f8add4733eaefa, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553171436117790859, guid: eb1b4b63274647f439f8add4733eaefa, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267982002337772066, guid: eb1b4b63274647f439f8add4733eaefa, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267982002337772066, guid: eb1b4b63274647f439f8add4733eaefa, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267982002337772066, guid: eb1b4b63274647f439f8add4733eaefa, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5223789838942365639, guid: eb1b4b63274647f439f8add4733eaefa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5351534490522182811, guid: eb1b4b63274647f439f8add4733eaefa, type: 3}
       propertyPath: m_Name
       value: GunObjectParent
@@ -461,6 +489,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 283325520}
     m_Modifications:
+    - target: {fileID: 1511704355422421742, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2915840377594391144, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -540,6 +572,10 @@ PrefabInstance:
     - target: {fileID: 2915840377594391144, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5553531906794864833, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5828633455930758868, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
       propertyPath: m_Name
