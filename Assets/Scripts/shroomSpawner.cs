@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShroomSpawner : MonoBehaviour
 {
+    PlayerManager player;
+
     [Header("Spawn Area")]
     [SerializeField] private LayerMask layersShroomCannotSpawnOn;
     [SerializeField] private Collider2D roomspawnarea;
@@ -19,11 +21,12 @@ public class ShroomSpawner : MonoBehaviour
     [SerializeField] private int maxShrooms = 100;
     public int ShroomCount;
     private List<GameObject> shroomObjects = new List<GameObject>();
+    [SerializeField] private float drainStrength = 10f;
 
 
     private void Awake()
     {
-        
+        player = FindObjectOfType<PlayerManager>();
     }
 
     private void Start()
@@ -34,6 +37,10 @@ public class ShroomSpawner : MonoBehaviour
     private void Update()
     {
         PeriodicSpawningUpdate();
+
+        float percentFull = ShroomCount / (float)maxShrooms;
+
+        player.CurrentHealth -= drainStrength * percentFull * Time.deltaTime;
     }
 
     private void PeriodicSpawningUpdate()
@@ -62,9 +69,14 @@ public class ShroomSpawner : MonoBehaviour
             Destroy(shroomObjects[i]);
         }
 
+        ShroomCount = 0;
         shroomObjects = new List<GameObject>();
     }
 
+    public bool IsFull()
+    {
+        return ShroomCount >= maxShrooms;
+    }
     public GameObject SpawnShrooms(Collider2D spawnableAreaCollider, GameObject[] shrooms)
     {
         Vector2 spawnPosition = RandomSpawnPosition(spawnableAreaCollider);

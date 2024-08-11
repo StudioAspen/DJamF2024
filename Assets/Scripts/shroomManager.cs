@@ -9,6 +9,8 @@ public class ShroomManager : MonoBehaviour
     public int capsOnDeath = 3;
     [SerializeField] GameObject squishSound;
 
+    private Coroutine flashCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,21 +20,32 @@ public class ShroomManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+    }
+
+    public void damageShroom(int dmgAmount)
+    {
+        if (flashCoroutine != null) StopFlash();
+        flashCoroutine = StartCoroutine(Flash());
+
+        s_currentHealth -= dmgAmount;
+
+        if (s_currentHealth <= 0)
         {
-            damageShroom(100);
-            Debug.Log("Hit");
+            Instantiate(squishSound);
+            Destroy(gameObject);
+            FindObjectOfType<PlayerManager>().Money += capsOnDeath;
         }
     }
 
-     public void damageShroom(int dmgAmount)
-        {
-            s_currentHealth -= dmgAmount;
+    private IEnumerator Flash()
+    {
+        GetComponentInChildren<SpriteRenderer>().color = Color.black;
+        yield return new WaitForSeconds(0.05f);
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+    }
 
-            if(s_currentHealth <= 0) {
-                Instantiate(squishSound);
-                Destroy(gameObject);
-                CapCounter.instance.IncreaseCaps(capsOnDeath);
-            }
-        }
+    private void StopFlash()
+    {
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+    }
 }

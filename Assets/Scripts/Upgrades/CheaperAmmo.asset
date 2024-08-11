@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CheaperAmmo
   m_EditorClassIdentifier: 
   <UpgradeType>k__BackingField: 6
-  <Description>k__BackingField: Make ammo replenish 5 money cheaper
-  <Sprite>k__BackingField: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  <Description>k__BackingField: Make ammo replenish 1 cap cheaper
   <Count>k__BackingField: 999
+  <IsRare>k__BackingField: 0
