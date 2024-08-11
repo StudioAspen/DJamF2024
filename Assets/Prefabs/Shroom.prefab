@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 023c7db9295f36a499cd6e63ec2b580a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  s_MaxHealth: 3
+  s_MaxHealth: 5
   s_currentHealth: 0
   capsOnDeath: 5
   squishSound: {fileID: 2799329977255035079, guid: 72ddf93175f8a8548bb4757c30c9cc3a, type: 3}
@@ -434,7 +434,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 232
   m_Sprite: {fileID: 21300000, guid: 7ecda733ced1d76408a56fdd27000327, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

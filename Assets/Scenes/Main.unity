@@ -434,6 +434,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2758936923580744020, guid: eb1b4b63274647f439f8add4733eaefa, type: 3}
+      propertyPath: FireRate
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 5351534490522182811, guid: eb1b4b63274647f439f8add4733eaefa, type: 3}
       propertyPath: m_Name
       value: GunObjectParent
@@ -1225,6 +1229,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradesUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2893650825958116271, guid: 8ca4b2db46a7fae419ddd5f08f393dd9, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893650825958116271, guid: 8ca4b2db46a7fae419ddd5f08f393dd9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3149201518996278722, guid: 8ca4b2db46a7fae419ddd5f08f393dd9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774782869180973561, guid: 8ca4b2db46a7fae419ddd5f08f393dd9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3842882744396467996, guid: 8ca4b2db46a7fae419ddd5f08f393dd9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1304,6 +1324,30 @@ PrefabInstance:
     - target: {fileID: 3842882744396467996, guid: 8ca4b2db46a7fae419ddd5f08f393dd9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691960298140844990, guid: 8ca4b2db46a7fae419ddd5f08f393dd9, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691960298140844990, guid: 8ca4b2db46a7fae419ddd5f08f393dd9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711935204483707674, guid: 8ca4b2db46a7fae419ddd5f08f393dd9, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711935204483707674, guid: 8ca4b2db46a7fae419ddd5f08f393dd9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133011468021496901, guid: 8ca4b2db46a7fae419ddd5f08f393dd9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716161011740047944, guid: 8ca4b2db46a7fae419ddd5f08f393dd9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

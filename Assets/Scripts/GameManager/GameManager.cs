@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
     }
 
     private void InitalizeNewRound() {
+        foreach (var shroom in shroomSpawners)
+        {
+            shroom.CanSpawn = false;
+            shroom.KillAllShrooms();
+        }
 
         Debug.Log("Initalize Round");
         currentRound++;
