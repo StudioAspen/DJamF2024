@@ -6,7 +6,7 @@ public class shroomManager : MonoBehaviour
 {
     public int s_MaxHealth = 300;
     public int s_currentHealth;
-    public int moneyDropped = 3;
+    public int capsOnDeath = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +31,7 @@ public class shroomManager : MonoBehaviour
             if(s_currentHealth <= 0)
             {
                 Destroy(gameObject);
+                CapCounter.instance.IncreaseCaps(capsOnDeath);
             }
         }
 }

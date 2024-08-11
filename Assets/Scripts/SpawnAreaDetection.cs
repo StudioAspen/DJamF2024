@@ -22,10 +22,7 @@ public class SpawnAreaDetection : MonoBehaviour
     }
     private void Spawn()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
             Debug.Log("Spawn");
             shroomSpawner.instance.SpawnShrooms(roomspawnarea, shrooms);
-        }
     }
 }
