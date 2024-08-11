@@ -430,6 +430,7 @@ MonoBehaviour:
   s_MaxHealth: 300
   s_currentHealth: 0
   capsOnDeath: 3
+  squishSound: {fileID: 0}
 --- !u!1 &793699424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,12 +1513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc95ae0855df71643b1cf935044b1979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startGame:
-    m_PersistentCalls:
-      m_Calls: []
-  endGame:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1805171285
 Transform:
   m_ObjectHideFlags: 0

@@ -96,6 +96,7 @@ MonoBehaviour:
   s_MaxHealth: 300
   s_currentHealth: 0
   capsOnDeath: 3
+  squishSound: {fileID: 2799329977255035079, guid: 72ddf93175f8a8548bb4757c30c9cc3a, type: 3}
 --- !u!82 &-7548326500326059477
 AudioSource:
   m_ObjectHideFlags: 0
