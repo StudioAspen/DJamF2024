@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34de9368998e0164086d487922a719b7, type: 3}
-  m_Name: AutoFire
+  m_Name: BiggerMag
   m_EditorClassIdentifier: 
-  <UpgradeType>k__BackingField: 4
-  <Description>k__BackingField: Makes your gun autofire
-  <Sprite>k__BackingField: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  <Count>k__BackingField: 1
-  <IsRare>k__BackingField: 1
+  <UpgradeType>k__BackingField: 10
+  <Description>k__BackingField: Increases your mag size by 1
+  <Sprite>k__BackingField: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  <Count>k__BackingField: 999
+  <IsRare>k__BackingField: 0

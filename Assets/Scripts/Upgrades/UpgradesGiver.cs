@@ -11,14 +11,20 @@ public class UpgradesGiver : MonoBehaviour
     [field: SerializeField] public Upgrade[] AllUpgrades { get; private set; }
     private Dictionary<UpgradeType, int> upgradesCounts = new Dictionary<UpgradeType, int>();
 
+    [field: Header("Upgrade Stats")]
+    [field: SerializeField] public float ChanceToGetRareUpgrade { get; private set; } = 0.01f;
+
+    [Header("Upgrade Add/Multipliers")]
     [SerializeField] private float maxHealthAddAmount = 10f;
     [SerializeField] private float moneyGainMultiplierAddAmount = 0.1f;
-    [SerializeField] private float fireRateMultiplierAddAmount = 0.1f;
+    [SerializeField] private float fireRateMultiplyAmount = 0.9f;
     [SerializeField] private int damageAddAmount = 1;
     [SerializeField] private int ammoCostSubtractAmount = 5;
     [SerializeField] private int healCostSubtractAmount = 5;
     [SerializeField] private float healAddAmount = 10f;
     [SerializeField] private int ammoReplenishAddAmount = 2;
+    [SerializeField] private float reloadDurationMultiplier = 0.9f;
+    [SerializeField] private int magAddAmount = 1;
 
     [HideInInspector] public UnityEvent OnUpgradeApplied = new UnityEvent();
 
@@ -43,13 +49,16 @@ public class UpgradesGiver : MonoBehaviour
                 player.MaxHealth += maxHealthAddAmount;
                 break;
             case UpgradeType.MoneyGainMultiplier:
-                player.MoneyGainMultiplier = player.MoneyGainMultiplier + moneyGainMultiplierAddAmount;
+                player.MoneyGainMultiplier += moneyGainMultiplierAddAmount;
                 break;
             case UpgradeType.FireRate:
+                player.Gun.FireRate *= fireRateMultiplyAmount;
                 break;
             case UpgradeType.Damage:
+                player.Gun.Damage += damageAddAmount;
                 break;
             case UpgradeType.AutoFire:
+                player.Gun.IsAutomatic = true;
                 break;
             case UpgradeType.CheaperHealth:
                 player.HealCost -= healCostSubtractAmount;
@@ -62,6 +71,15 @@ public class UpgradesGiver : MonoBehaviour
                 break;
             case UpgradeType.MoreAmmoReplenish:
                 player.AmmoReplenishAmount += ammoReplenishAddAmount;
+                break;
+            case UpgradeType.FasterReload:
+                player.Gun.ReloadDuration *= reloadDurationMultiplier;
+                break;
+            case UpgradeType.BiggerMag:
+                player.Gun.MagSize += magAddAmount;
+                break;
+            case UpgradeType.FullHeal:
+                player.CurrentHealth = player.MaxHealth;
                 break;
             default:
                 break;
@@ -81,13 +99,25 @@ public class UpgradesGiver : MonoBehaviour
         }
     }
 
-    public List<Upgrade> GetPossibleUpgrades()
+    public List<Upgrade> GetPossibleNormalUpgrades()
     {
         List<Upgrade> possibleUpgrades = new List<Upgrade>();
 
         foreach (Upgrade upgrade in AllUpgrades)
         {
-            if (upgradesCounts[upgrade.UpgradeType] > 0) possibleUpgrades.Add(upgrade);
+            if (upgradesCounts[upgrade.UpgradeType] > 0 && !upgrade.IsRare) possibleUpgrades.Add(upgrade);
+        }
+
+        return possibleUpgrades;
+    }
+
+    public List<Upgrade> GetPossibleRareUpgrades()
+    {
+        List<Upgrade> possibleUpgrades = new List<Upgrade>();
+
+        foreach (Upgrade upgrade in AllUpgrades)
+        {
+            if (upgradesCounts[upgrade.UpgradeType] > 0 && upgrade.IsRare) possibleUpgrades.Add(upgrade);
         }
 
         return possibleUpgrades;

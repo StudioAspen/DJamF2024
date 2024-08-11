@@ -11,6 +11,7 @@ public class Upgrade : ScriptableObject
     [field: SerializeField] public string Description { get; private set; } = string.Empty;
     [field: SerializeField] public Sprite Sprite { get; private set; }
     [field: SerializeField] public int Count { get; private set; }
+    [field: SerializeField] public bool IsRare { get; private set; }
 }
 
 public enum UpgradeType
@@ -23,5 +24,8 @@ public enum UpgradeType
     CheaperHealth,
     CheaperAmmo,
     BetterHeal,
-    MoreAmmoReplenish
+    MoreAmmoReplenish,
+    FasterReload,
+    BiggerMag,
+    FullHeal
 }

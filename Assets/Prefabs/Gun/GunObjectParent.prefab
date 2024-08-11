@@ -30,7 +30,7 @@ RectTransform:
   m_Children:
   - {fileID: 7995541966987310993}
   - {fileID: 2005929656387111182}
-  - {fileID: 7552160537325164694}
+  - {fileID: 1227110868353366121}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -192,6 +192,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6194280860207634423, guid: 40a3d56c0e6b55c4c8fb8d22d4a4ed5a, type: 3}
+      propertyPath: Damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6194280860207634423, guid: 40a3d56c0e6b55c4c8fb8d22d4a4ed5a, type: 3}
+      propertyPath: MagSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6194280860207634423, guid: 40a3d56c0e6b55c4c8fb8d22d4a4ed5a, type: 3}
+      propertyPath: FireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6194280860207634423, guid: 40a3d56c0e6b55c4c8fb8d22d4a4ed5a, type: 3}
+      propertyPath: TotalAmmo
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6194280860207634423, guid: 40a3d56c0e6b55c4c8fb8d22d4a4ed5a, type: 3}
+      propertyPath: ReloadDuration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6663431596854240051, guid: 40a3d56c0e6b55c4c8fb8d22d4a4ed5a, type: 3}
       propertyPath: m_Name
       value: Gun
@@ -225,10 +245,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 995300609100823099}
     m_Modifications:
+    - target: {fileID: 970137326302376537, guid: ae83a3572bbcd3e479ff40552c95b524, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2977207692133371399, guid: ae83a3572bbcd3e479ff40552c95b524, type: 3}
       propertyPath: owner
       value: 
       objectReference: {fileID: 2758936923580744020}
+    - target: {fileID: 5206633919506157828, guid: ae83a3572bbcd3e479ff40552c95b524, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6210184407574412909, guid: ae83a3572bbcd3e479ff40552c95b524, type: 3}
       propertyPath: m_Name
       value: CrossHairUI
@@ -318,7 +346,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae83a3572bbcd3e479ff40552c95b524, type: 3}
---- !u!224 &7552160537325164694 stripped
+--- !u!224 &1227110868353366121 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7560359713194892932, guid: ae83a3572bbcd3e479ff40552c95b524, type: 3}
   m_PrefabInstance: {fileID: 8785495719073998573}

@@ -1,32 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] float damage;
-    [SerializeField] float fireRate;
+    public float Damage;
+    public float FireRate;
     float fireTimer;
-    [SerializeField] public float reloadDuration;
-    public float reloadTimer;
+    public float ReloadDuration;
+    [HideInInspector]public float ReloadTimer;
     bool reloading = false;
 
-    public int currentAmmo;
-    public int magSize;
-    [SerializeField] public int totalAmmo;
+    public int CurrentAmmo;
+    public int MagSize;
+    public int TotalAmmo;
 
-    [SerializeField] bool isAutomatic;
-    public Vector2 crosshairPos;
+    public bool IsAutomatic;
+    public Vector2 CrosshairPos;
 
     private void Start() {
-        currentAmmo = magSize;
+        CurrentAmmo = MagSize;
     }
     private void Update() {
         // Inputs
-        if(isAutomatic && Input.GetMouseButton(0)) {
+        if(IsAutomatic && Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject()) {
             Shoot();
         }
-        else if(Input.GetMouseButtonDown(0)) {
+        else if(Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) {
             Shoot();
         }
 
@@ -38,44 +39,45 @@ public class Gun : MonoBehaviour
 
         // Updates
         UpdateCrosshair();
+
     }
 
     private void Shoot() {
 
-        if(fireTimer <= 0 && currentAmmo > 0) {
-            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(new Vector3(crosshairPos.x, crosshairPos.y, 0));
+        if(fireTimer <= 0 && CurrentAmmo > 0) {
+            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(new Vector3(CrosshairPos.x, CrosshairPos.y, 0));
 
             Collider2D foundCollider = Physics2D.OverlapPoint(worldPoint);
             Debug.DrawLine(worldPoint, worldPoint + Vector2.up, Color.white, 0.5f);
 
             // Ammo + reloading
-            currentAmmo--;
-            if(currentAmmo <= 0) {
+            CurrentAmmo--;
+            if(CurrentAmmo <= 0) {
                 Reload();
             }
             
             Debug.Log("shot");
 
             // Resetting timer
-            fireTimer = fireRate;
+            fireTimer = FireRate;
         }
     }
 
     private void Reload() {
         if(!reloading) {
             reloading = true;
-            reloadTimer = reloadDuration;
+            ReloadTimer = ReloadDuration;
         }
     }
 
     private void ReloadUpdate() {
         if (reloading) {
-            reloadTimer -= Time.deltaTime;
-            if (reloadTimer <= 0) {
-                int loadDifference = magSize - currentAmmo;
-                int loadAmount = Mathf.Min(totalAmmo, loadDifference);
-                currentAmmo = loadAmount;
-                totalAmmo -= loadAmount;
+            ReloadTimer -= Time.deltaTime;
+            if (ReloadTimer <= 0) {
+                int loadDifference = MagSize - CurrentAmmo;
+                int loadAmount = Mathf.Min(TotalAmmo, loadDifference);
+                CurrentAmmo = loadAmount;
+                TotalAmmo -= loadAmount;
 
                 reloading = false;
             }
@@ -83,6 +85,6 @@ public class Gun : MonoBehaviour
     }
 
     private void UpdateCrosshair() {
-        crosshairPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        CrosshairPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
     }
 }

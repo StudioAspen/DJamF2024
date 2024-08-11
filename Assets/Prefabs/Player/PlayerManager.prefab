@@ -46,10 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentHealth: 0
   MaxHealth: 100
-  Money: 0
+  Money: 1839
   MoneyGainMultiplier: 1
-  HealAmount: 50
+  HealAmount: 10
   AmmoReplenishAmount: 30
-  HealCost: 50
-  AmmoReplenishCost: 50
-  UpgradeCost: 50
+  HealCost: 100
+  AmmoReplenishCost: 100
+  UpgradeCost: 250
+  UpgradeCostMultiplier: 1.05
