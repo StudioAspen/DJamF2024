@@ -46,9 +46,9 @@ public class Gun : MonoBehaviour
 
     private void Shoot() {
 
-        if(fireTimer <= 0 && currentAmmo > 0) {
+        if(fireTimer <= 0 && CurrentAmmo > 0) {
             gunAudio.PlayShot();
-            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(new Vector3(crosshairPos.x, crosshairPos.y, 0));
+            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(new Vector3(CrosshairPos.x, CrosshairPos.y, 0));
 
             Collider2D foundCollider = Physics2D.OverlapPoint(worldPoint);
             Debug.DrawLine(worldPoint, worldPoint + Vector2.up, Color.white, 0.5f);
