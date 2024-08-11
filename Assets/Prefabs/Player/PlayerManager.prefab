@@ -55,6 +55,7 @@ MonoBehaviour:
   AmmoReplenishCost: 100
   UpgradeCost: 250
   UpgradeCostMultiplier: 1.05
+  endSceneName: EndOfGame
   whispering: {fileID: 2424819775717144132}
 --- !u!82 &2424819775717144132
 AudioSource:
