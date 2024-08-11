@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class shroomSpawner : MonoBehaviour
 {
+    [SerializeField] private LayerMask layersShroomCannotSpawnOn;
     public static shroomSpawner instance;
 
     private void Awake()
@@ -31,7 +32,6 @@ public class shroomSpawner : MonoBehaviour
         int attemptCount = 0;
         int maxAttempts = 200;
 
-        int layerToNotSpawnOn = LayerMask.NameToLayer("Wall");
 
         while (!isSpawnPosValid && attemptCount < maxAttempts)
         {
@@ -41,7 +41,7 @@ public class shroomSpawner : MonoBehaviour
             bool isInvalidCollision = false;
             foreach (Collider2D collider in colliders)
             {
-                if (collider.gameObject.layer == layerToNotSpawnOn)
+                if (((1 << collider.gameObject.layer) & layersShroomCannotSpawnOn) !=0)
                 {
                     isInvalidCollision = true;
                     break;

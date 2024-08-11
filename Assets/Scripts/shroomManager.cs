@@ -7,12 +7,11 @@ public class shroomManager : MonoBehaviour
     public int s_MaxHealth = 300;
     public int s_currentHealth;
     public int moneyDropped = 3;
-    public GameObject Shroom;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        s_currentHealth = s_MaxHealth;
     }
 
     // Update is called once per frame
@@ -20,19 +19,18 @@ public class shroomManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            damageShroom();
+            damageShroom(100);
             Debug.Log("Hit");
         }
-
-        if (s_currentHealth <= 0)
-        {
-            //Delete Shroom
-        }
-
     }
 
-     private void damageShroom()
+     public void damageShroom(int dmgAmount)
         {
-            s_currentHealth -= 100;
+            s_currentHealth -= dmgAmount;
+
+            if(s_currentHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
 }

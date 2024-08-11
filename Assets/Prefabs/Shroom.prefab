@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4452556835078445948}
   - component: {fileID: -5444449675050590397}
-  m_Layer: 0
+  - component: {fileID: 2308023578779068148}
+  m_Layer: 6
   m_Name: Shroom
   m_TagString: Shroom
   m_Icon: {fileID: 0}
@@ -79,6 +80,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7704297, y: 2.0626616}
   m_EdgeRadius: 0
+--- !u!114 &2308023578779068148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3572856682795246902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023c7db9295f36a499cd6e63ec2b580a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  s_MaxHealth: 300
+  s_currentHealth: 0
+  moneyDropped: 3
 --- !u!1 &4723112632558976268
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4810049970122315090}
   - component: {fileID: 1332834134455426251}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 841872341872275510}
   - component: {fileID: 3458711343610656210}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
