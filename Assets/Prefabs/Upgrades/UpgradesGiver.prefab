@@ -55,14 +55,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8b775890e1b62984d9b12e0a748b6f0e, type: 2}
   - {fileID: 11400000, guid: ad2453be94e8d1e47a6de20c7cdf3c4e, type: 2}
   - {fileID: 11400000, guid: 509c2672824971349b188773aa78c499, type: 2}
+  - {fileID: 11400000, guid: 05e16f68c3f33014ca5dfec36a471673, type: 2}
+  - {fileID: 11400000, guid: ce57848f0235720488ab5f1853b6300e, type: 2}
+  - {fileID: 11400000, guid: 6db4bd8bf1bd1814dbf863c6d0eb56df, type: 2}
+  <ChanceToGetRareUpgrade>k__BackingField: 0.005
   maxHealthAddAmount: 100
   moneyGainMultiplierAddAmount: 0.1
-  fireRateMultiplierAddAmount: 0.1
+  fireRateMultiplyAmount: 0.9
   damageAddAmount: 1
   ammoCostSubtractAmount: 5
   healCostSubtractAmount: 5
   healAddAmount: 10
   ammoReplenishAddAmount: 2
+  reloadDurationMultiplier: 0.9
+  magAddAmount: 1
   OnUpgradeApplied:
     m_PersistentCalls:
       m_Calls: []

@@ -9,6 +9,7 @@ public class RoomsControlUI : MonoBehaviour
     private RoomsManager roomsManager;
     private PlayerManager player;
     private UpgradesUI upgradesUI;
+    private PlayerUI playerUI;
     [SerializeField] AudioSource moneyDing;
     [SerializeField] AudioSource deny;
 
@@ -28,13 +29,14 @@ public class RoomsControlUI : MonoBehaviour
     {
         roomsManager = FindObjectOfType<RoomsManager>();
         player = FindObjectOfType<PlayerManager>();
-        UpgradesUI upgradesUI = FindObjectOfType<UpgradesUI>();
+        upgradesUI = FindObjectOfType<UpgradesUI>();
+        playerUI = FindObjectOfType<PlayerUI>();
 
         rightButton.onClick.AddListener(NextRoom);
         leftButton.onClick.AddListener(PrevRoom);
 
         buyHealthButton.onClick.AddListener(() => {
-            if (player.Money < player.HealCost) {
+            if (player.Money < player.HealCost && player.CurrentHealth == player.MaxHealth) {
                 deny.Stop();
                 deny.Play();
                 return;
@@ -42,6 +44,7 @@ public class RoomsControlUI : MonoBehaviour
             moneyDing.Stop();
             moneyDing.Play();
 
+            playerUI.PlayMoneySubtractAnimation(player.HealCost);
             player.Money -= player.HealCost;
 
             player.CurrentHealth += player.HealAmount;
@@ -56,7 +59,10 @@ public class RoomsControlUI : MonoBehaviour
             moneyDing.Stop();
             moneyDing.Play();
 
+            playerUI.PlayMoneySubtractAnimation(player.AmmoReplenishCost);
             player.Money -= player.AmmoReplenishCost;
+
+            player.Gun.TotalAmmo += player.AmmoReplenishAmount;
         });
 
         buyUpgradeButton.onClick.AddListener(() => {
@@ -68,7 +74,9 @@ public class RoomsControlUI : MonoBehaviour
             moneyDing.Stop();
             moneyDing.Play();
 
+            playerUI.PlayMoneySubtractAnimation(player.UpgradeCost);
             player.Money -= player.UpgradeCost;
+            player.UpgradeCost = (int)Mathf.Floor(player.UpgradeCost * player.UpgradeCostMultiplier);
 
             upgradesUI.Show();
             upgradesUI.Generate3RandomUpgrades();
@@ -90,9 +98,9 @@ public class RoomsControlUI : MonoBehaviour
 
     private void HandleShopButtonsCostUI()
     {
-        buyHealthButtonText.text = $"Buy {player.HealAmount} Health: {player.HealCost} Money";
-        buyAmmoButtonText.text = $"Buy {player.AmmoReplenishAmount} Ammo: {player.AmmoReplenishCost} Money";
-        buyUpgradeButtonText.text = $"Buy Upgrade: {player.UpgradeCost} Money";
+        buyHealthButtonText.text = $"Buy {player.HealAmount} Health: {player.HealCost} Caps";
+        buyAmmoButtonText.text = $"Buy {player.AmmoReplenishAmount} Ammo: {player.AmmoReplenishCost} Caps";
+        buyUpgradeButtonText.text = $"Buy Upgrade: {player.UpgradeCost} Caps";
     }
 
     public void NextRoom()

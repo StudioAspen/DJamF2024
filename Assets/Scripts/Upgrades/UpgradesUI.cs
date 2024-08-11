@@ -29,14 +29,18 @@ public class UpgradesUI : MonoBehaviour
 
     public void Generate3RandomUpgrades()
     {
-        List<Upgrade> potentialUpgrades = upgradesGiver.GetPossibleUpgrades();
-
         for (int i = 0; i < 3; i++)
         {
+            float randomPercent = Random.Range(0, 1f);
+            List<Upgrade> potentialUpgrades = randomPercent < upgradesGiver.ChanceToGetRareUpgrade ? upgradesGiver.GetPossibleRareUpgrades() : upgradesGiver.GetPossibleNormalUpgrades();
+
+            if(potentialUpgrades.Count == 0) potentialUpgrades = upgradesGiver.GetPossibleNormalUpgrades();
+
             int randomIndex = Random.Range(0, potentialUpgrades.Count);
             Upgrade randomUpgrade = potentialUpgrades[randomIndex];
 
             upgradeButton[i].onClick.RemoveAllListeners();
+            upgradeButton[i].GetComponent<Image>().color = randomUpgrade.IsRare ? Color.yellow : Color.white;
 
             upgradeButton[i].onClick.AddListener(() => upgradesGiver.ApplyUpgrade(randomUpgrade.UpgradeType));
             upgradeDescriptionText[i].text = randomUpgrade.Description;

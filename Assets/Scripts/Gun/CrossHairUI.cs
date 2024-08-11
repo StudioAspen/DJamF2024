@@ -17,10 +17,10 @@ public class CrossHairUI : MonoBehaviour
         UpdatePosition();
     }
     private void UpdatePosition() {
-        Vector3 screenPos = owner.crosshairPos;
+        Vector3 screenPos = owner.CrosshairPos;
         rect.position = new Vector3(screenPos.x, screenPos.y, screenPos.z);
     }
     private void UpdateUI() {
-        reloadGague.fillAmount = owner.reloadTimer / owner.reloadDuration;
+        reloadGague.fillAmount = owner.ReloadTimer / owner.ReloadDuration;
     }
 }

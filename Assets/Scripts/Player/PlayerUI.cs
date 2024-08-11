@@ -15,6 +15,7 @@ public class PlayerUI : MonoBehaviour
 
     [Header("Money")]
     [SerializeField] private TMP_Text playerMoneyText;
+    [SerializeField] private PlayerMoneySubtractText playerMoneySubtractText;
 
     private void Awake()
     {
@@ -34,14 +35,16 @@ public class PlayerUI : MonoBehaviour
         playerHealthSlider.value = Mathf.Lerp(playerHealthSlider.value, playerHealthPercent, 10f * Time.unscaledDeltaTime);
 
         playerHealthText.text = $"{Mathf.Round(player.CurrentHealth * 100)/100}/{player.MaxHealth}";
-
-        if (playerHealthPercent < 0.1f) playerHealthSliderFillImage.color = Color.Lerp(playerHealthSliderFillImage.color, Color.red, 5f * Time.deltaTime);
-        else if (playerHealthPercent < 0.25f) playerHealthSliderFillImage.color = Color.Lerp(playerHealthSliderFillImage.color, Color.yellow, 5f * Time.deltaTime);
-        else playerHealthSliderFillImage.color = Color.Lerp(playerHealthSliderFillImage.color, Color.green, 5f * Time.deltaTime);
     }
 
     private void HandlePlayerMoneyUI()
     {
-        playerMoneyText.text = $"Money: {player.Money}";
+        playerMoneyText.text = $"Mushroom Caps: {player.Money}";
+    }
+
+    public void PlayMoneySubtractAnimation(int amount)
+    {
+        PlayerMoneySubtractText text = Instantiate(playerMoneySubtractText, playerMoneyText.rectTransform.position + 50f * Vector3.down, Quaternion.identity, transform);
+        text.PlayMoneySubtractAnimation(amount);
     }
 }

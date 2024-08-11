@@ -13,7 +13,7 @@ public class AmmoUI : MonoBehaviour
     }
 
     public void UpdateUI() {
-        totalAmmo.text = owner.totalAmmo.ToString();
-        currentAmmo.text = owner.currentAmmo + " / " + owner.magSize;
+        totalAmmo.text = owner.TotalAmmo.ToString();
+        currentAmmo.text = owner.CurrentAmmo + " / " + owner.MagSize;
     }
 }
