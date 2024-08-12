@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         {
             shroom.CanSpawn = false;
             shroom.KillAllShrooms();
-
+            shroom.difficulty++;
             shroom.SpawnIntervalMultiplier *= 0.75f;
         }
 

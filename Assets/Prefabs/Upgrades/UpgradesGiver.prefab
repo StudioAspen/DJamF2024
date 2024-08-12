@@ -58,13 +58,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 05e16f68c3f33014ca5dfec36a471673, type: 2}
   - {fileID: 11400000, guid: ce57848f0235720488ab5f1853b6300e, type: 2}
   - {fileID: 11400000, guid: 6db4bd8bf1bd1814dbf863c6d0eb56df, type: 2}
-  <ChanceToGetRareUpgrade>k__BackingField: 0.005
+  <ChanceToGetRareUpgrade>k__BackingField: 0.01
   maxHealthAddAmount: 10
   moneyGainMultiplierAddAmount: 0.1
   fireRateMultiplyAmount: 0.9
   damageAddAmount: 1
-  ammoCostSubtractAmount: 1
-  healCostSubtractAmount: 1
+  ammoCostSubtractAmount: 10
+  healCostSubtractAmount: 10
   healAddAmount: 10
   ammoReplenishAddAmount: 2
   reloadDurationMultiplier: 0.9

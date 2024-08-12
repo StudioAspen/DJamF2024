@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CheaperHealth
   m_EditorClassIdentifier: 
   <UpgradeType>k__BackingField: 5
-  <Description>k__BackingField: Make heals 1 cap cheaper
+  <Description>k__BackingField: Make heals 10 cap cheaper
   <Count>k__BackingField: 999
   <IsRare>k__BackingField: 0

@@ -13,6 +13,7 @@ public class ShroomSpawner : MonoBehaviour
     [Header("Spawn Behaviour")]
     [SerializeField] private GameObject[] shrooms;
     [SerializeField] private Vector2 spawnIntervalRange = new Vector2(3f, 5f);
+    public int difficulty = 0;
     public float SpawnIntervalMultiplier = 1f;
     private float spawnInterval;
     private float spawnShroomsTimer;
@@ -77,10 +78,17 @@ public class ShroomSpawner : MonoBehaviour
     {
         return ShroomCount >= maxShrooms;
     }
+
+    public void RemoveShroom(GameObject shroom)
+    {
+        shroomObjects.Remove(shroom);
+    }
+
     public GameObject SpawnShrooms(Collider2D spawnableAreaCollider, GameObject[] shrooms)
     {
         Vector2 spawnPosition = RandomSpawnPosition(spawnableAreaCollider);
-        GameObject spawnedShroom = Instantiate(shrooms[0], spawnPosition, Quaternion.identity);
+        GameObject spawnedShroom = Instantiate(shrooms[difficulty], spawnPosition, Quaternion.identity);
+        spawnedShroom.GetComponent<ShroomManager>().Init(this);
 
         return spawnedShroom;
     }

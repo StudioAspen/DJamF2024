@@ -28,12 +28,17 @@ public class UpgradesUI : MonoBehaviour
 
     public void Generate3RandomUpgrades()
     {
+        List<Upgrade> normalUpgrades = upgradesGiver.GetPossibleNormalUpgrades();
+        List<Upgrade> rareUpgrades = upgradesGiver.GetPossibleRareUpgrades();
+
         for (int i = 0; i < 3; i++)
         {
-            float randomPercent = Random.Range(0, 1f);
-            List<Upgrade> potentialUpgrades = randomPercent < upgradesGiver.ChanceToGetRareUpgrade ? upgradesGiver.GetPossibleRareUpgrades() : upgradesGiver.GetPossibleNormalUpgrades();
+            List<Upgrade> potentialUpgrades = normalUpgrades;
 
-            if(potentialUpgrades.Count == 0) potentialUpgrades = upgradesGiver.GetPossibleNormalUpgrades();
+            float randomPercent = Random.Range(0, 1f);
+
+            if (randomPercent < upgradesGiver.ChanceToGetRareUpgrade) potentialUpgrades = rareUpgrades;
+            if(potentialUpgrades.Count == 0) potentialUpgrades = normalUpgrades;
 
             int randomIndex = Random.Range(0, potentialUpgrades.Count);
             Upgrade randomUpgrade = potentialUpgrades[randomIndex];

@@ -47,6 +47,16 @@ public class Gun : MonoBehaviour
     }
 
     private void Shoot() {
+        if(CurrentAmmo <= 0 && TotalAmmo > 0)
+        {
+            if (CurrentAmmo <= 0)
+            {
+                Reload();
+            }
+
+            // Resetting timer
+            fireTimer = FireRate;
+        }
 
         if(fireTimer <= 0 && CurrentAmmo > 0) {
             gunAudio.PlayShot();

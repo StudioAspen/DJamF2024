@@ -51,9 +51,9 @@ MonoBehaviour:
   MoneyGainMultiplier: 1
   HealAmount: 10
   AmmoReplenishAmount: 30
-  HealCost: 5
-  AmmoReplenishCost: 5
-  UpgradeCost: 25
+  HealCost: 50
+  AmmoReplenishCost: 50
+  UpgradeCost: 250
   UpgradeCostMultiplier: 1.05
   endSceneName: EndOfGame
   whispering: {fileID: 2424819775717144132}

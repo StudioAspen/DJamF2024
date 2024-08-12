@@ -12,6 +12,8 @@ public class Menu : MonoBehaviour
 
     private void Awake()
     {
+        Cursor.visible = true;
+
         blackScreenFade = FindObjectOfType<BlackScreenFade>();
 
         playButton.onClick.AddListener(() => {

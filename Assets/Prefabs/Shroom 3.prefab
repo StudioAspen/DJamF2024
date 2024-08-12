@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2308023578779068148}
   - component: {fileID: -7548326500326059477}
   m_Layer: 6
-  m_Name: Shroom
+  m_Name: Shroom 3
   m_TagString: Shroom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,9 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 023c7db9295f36a499cd6e63ec2b580a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  s_MaxHealth: 4
+  s_MaxHealth: 25
   s_currentHealth: 0
-  capsOnDeath: 50
+  capsOnDeath: 200
   squishSound: {fileID: 2799329977255035079, guid: 72ddf93175f8a8548bb4757c30c9cc3a, type: 3}
 --- !u!82 &-7548326500326059477
 AudioSource:

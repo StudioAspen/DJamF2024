@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CheaperAmmo
   m_EditorClassIdentifier: 
   <UpgradeType>k__BackingField: 6
-  <Description>k__BackingField: Make ammo replenish 1 cap cheaper
+  <Description>k__BackingField: Make ammo replenish 10 cap cheaper
   <Count>k__BackingField: 999
   <IsRare>k__BackingField: 0

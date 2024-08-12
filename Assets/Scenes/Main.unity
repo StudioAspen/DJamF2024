@@ -293,7 +293,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -436,7 +436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2758936923580744020, guid: eb1b4b63274647f439f8add4733eaefa, type: 3}
       propertyPath: FireRate
-      value: 0.8
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5351534490522182811, guid: eb1b4b63274647f439f8add4733eaefa, type: 3}
       propertyPath: m_Name
@@ -487,12 +487,18 @@ MonoBehaviour:
   roomspawnarea: {fileID: 1190582056}
   shrooms:
   - {fileID: 3572856682795246902, guid: b461cf1747b4d5e43a62d63433797cb9, type: 3}
-  spawnIntervalRange: {x: 7.5, y: 10}
+  - {fileID: 3572856682795246902, guid: dd7f3da8691569744a4aabf97ce300c2, type: 3}
+  - {fileID: 3572856682795246902, guid: 0e7c465ad14cba84eae3c550f433b454, type: 3}
+  - {fileID: 3572856682795246902, guid: 911c7c0730ee94c4a972a59d3b55932f, type: 3}
+  - {fileID: 3572856682795246902, guid: 61cb71c32e1fe634bb31439747bf41a8, type: 3}
+  - {fileID: 3572856682795246902, guid: 85bcd731ebef45044a67b9bc73f4a79e, type: 3}
+  spawnIntervalRange: {x: 5, y: 20}
+  difficulty: 0
   SpawnIntervalMultiplier: 1
   CanSpawn: 1
   maxShrooms: 100
   ShroomCount: 0
-  drainStrength: 1
+  drainStrength: 2
 --- !u!4 &733955714
 Transform:
   m_ObjectHideFlags: 0
@@ -626,12 +632,18 @@ MonoBehaviour:
   roomspawnarea: {fileID: 1950265356}
   shrooms:
   - {fileID: 3572856682795246902, guid: b461cf1747b4d5e43a62d63433797cb9, type: 3}
-  spawnIntervalRange: {x: 7.5, y: 10}
+  - {fileID: 3572856682795246902, guid: dd7f3da8691569744a4aabf97ce300c2, type: 3}
+  - {fileID: 3572856682795246902, guid: 0e7c465ad14cba84eae3c550f433b454, type: 3}
+  - {fileID: 3572856682795246902, guid: 911c7c0730ee94c4a972a59d3b55932f, type: 3}
+  - {fileID: 3572856682795246902, guid: 61cb71c32e1fe634bb31439747bf41a8, type: 3}
+  - {fileID: 3572856682795246902, guid: 85bcd731ebef45044a67b9bc73f4a79e, type: 3}
+  spawnIntervalRange: {x: 5, y: 20}
+  difficulty: 0
   SpawnIntervalMultiplier: 1
   CanSpawn: 1
   maxShrooms: 100
   ShroomCount: 0
-  drainStrength: 1
+  drainStrength: 2
 --- !u!224 &896424540 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3842882744396467996, guid: 8ca4b2db46a7fae419ddd5f08f393dd9, type: 3}
@@ -645,6 +657,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 283325520}
     m_Modifications:
+    - target: {fileID: 487933579750543162, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 235.9829
+      objectReference: {fileID: 0}
+    - target: {fileID: 487933579750543162, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -781.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 487933579750543162, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 467
+      objectReference: {fileID: 0}
     - target: {fileID: 1511704355422421742, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -729,13 +753,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3228269244650291695, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c87187f1155aab04a8bdd2b72e38114c, type: 2}
+    - target: {fileID: 3228269244650291695, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5553531906794864833, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
       propertyPath: m_fontSizeBase
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 5553531906794864833, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5828633455930758868, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
       propertyPath: m_Name
       value: GameManagerObjectParent
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069438383187396805, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
+      propertyPath: totalRounds
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069438383187396805, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
+      propertyPath: roundDuration
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 6069438383187396805, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
       propertyPath: shroomSpawners.Array.data[0]
@@ -749,6 +793,18 @@ PrefabInstance:
       propertyPath: shroomSpawners.Array.data[2]
       value: 
       objectReference: {fileID: 733955713}
+    - target: {fileID: 6491576041090578812, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 367.4129
+      objectReference: {fileID: 0}
+    - target: {fileID: 6491576041090578812, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6491576041090578812, guid: 9da054c846859234fa80dcd2acc8c14a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1019,12 +1075,18 @@ MonoBehaviour:
   roomspawnarea: {fileID: 171204565}
   shrooms:
   - {fileID: 3572856682795246902, guid: b461cf1747b4d5e43a62d63433797cb9, type: 3}
-  spawnIntervalRange: {x: 7.5, y: 10}
+  - {fileID: 3572856682795246902, guid: dd7f3da8691569744a4aabf97ce300c2, type: 3}
+  - {fileID: 3572856682795246902, guid: 0e7c465ad14cba84eae3c550f433b454, type: 3}
+  - {fileID: 3572856682795246902, guid: 911c7c0730ee94c4a972a59d3b55932f, type: 3}
+  - {fileID: 3572856682795246902, guid: 61cb71c32e1fe634bb31439747bf41a8, type: 3}
+  - {fileID: 3572856682795246902, guid: 85bcd731ebef45044a67b9bc73f4a79e, type: 3}
+  spawnIntervalRange: {x: 5, y: 20}
+  difficulty: 0
   SpawnIntervalMultiplier: 1
   CanSpawn: 1
   maxShrooms: 100
   ShroomCount: 0
-  drainStrength: 1
+  drainStrength: 2
 --- !u!4 &1622315593 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2319802396882288062, guid: 80798ab5bfb581f43b20702891cfbc42, type: 3}

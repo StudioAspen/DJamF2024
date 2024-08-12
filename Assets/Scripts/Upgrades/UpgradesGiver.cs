@@ -101,8 +101,8 @@ public class UpgradesGiver : MonoBehaviour
         {
             upgradesCounts[upgrade.UpgradeType] = upgrade.Count;
 
-            if (upgrade.UpgradeType == UpgradeType.CheaperHealth) upgradesCounts[upgrade.UpgradeType] = (int)Mathf.Ceil(player.HealCost / (float)healAddAmount);
-            if (upgrade.UpgradeType == UpgradeType.CheaperAmmo) upgradesCounts[upgrade.UpgradeType] = (int)Mathf.Ceil(player.AmmoReplenishCost / (float)ammoCostSubtractAmount);
+            if (upgrade.UpgradeType == UpgradeType.CheaperHealth) upgradesCounts[upgrade.UpgradeType] = (int)Mathf.Ceil(player.HealCost / (float)healCostSubtractAmount - 1);
+            if (upgrade.UpgradeType == UpgradeType.CheaperAmmo) upgradesCounts[upgrade.UpgradeType] = (int)Mathf.Ceil(player.AmmoReplenishCost / (float)ammoCostSubtractAmount - 1);
         }
     }
 
